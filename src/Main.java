@@ -1,39 +1,37 @@
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        List<Integer> numeric = new ArrayList<>();
-        List<String> alphabetic = new ArrayList<>();
 
-        numeric.add(1);
-        numeric.add(2);
-        numeric.add(3);
-        numeric.add(4);
-        numeric.add(5);
-        numeric.add(6);
-        numeric.add(7);
-        numeric.add(8);
-        numeric.add(9);
-        numeric.add(0);
+        Integer[] numeric = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
+        String[] alphabetic = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "zero"};
 
-        alphabetic.add("one");
-        alphabetic.add("two");
-        alphabetic.add("three");
-        alphabetic.add("four");
-        alphabetic.add("five");
-        alphabetic.add("six");
-        alphabetic.add("seven");
-        alphabetic.add("eight");
-        alphabetic.add("nine");
-        alphabetic.add("zero");
+        Translator translator = new Translator(alphabetic, numeric);
 
-        // verkeerde argumenten, liep hierop vast
-        new Translator(alphabetic, numeric);
+        boolean play = true;
+        String ongeldig = "ongeldige invoer";
 
+        Scanner scanner = new Scanner(System.in);
 
-
-
+        while (play) {
+            System.out.println("Type 'x' om te stoppen \nType 'v' om te vertalen");
+            String input = scanner.nextLine();
+            if (input.equals("x")) {
+                play = false;
+            } else if (input.equals("v")) {
+                System.out.println("Type een cijfer in van 0 t/m 9");
+                int number = scanner.nextInt();
+                scanner.nextLine();
+                if (number < 10) {
+                    String result = translator.translate(number);
+                    System.out.println("De vertaling van " + number + " is " + result);
+                } else {
+                    System.out.println(ongeldig);
+                }
+            } else {
+                System.out.println(ongeldig);
+            }
+        }
     }
 }

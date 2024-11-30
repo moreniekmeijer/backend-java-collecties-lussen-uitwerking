@@ -1,5 +1,6 @@
 import java.util.HashSet;
 import java.util.Objects;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Bonus {
@@ -10,26 +11,29 @@ public class Bonus {
         // In de code staan op verschillende plekken comments tussen "/*...*/" als hint wat je moet doen
 
 
-        HashSet<Integer> secretnumber = randomnumbergenerator();
-        String stringnumber = setToStringConverter(secretnumber);
-        System.out.println(stringnumber);
+        HashSet<Integer> secretNumber = randomnumbergenerator();
+        String stringNumber = setToStringConverter(secretNumber);
+        System.out.println(stringNumber);
         feedback(/*vul hier het juiste argument in*/);
 
     }
 
-    public static void/*moet dit returntype "void" zijn of wat anders?*/ randomnumbergenerator(/*Heeft deze methode nog parameter(s) nodig?*/){
-         /*
-        Vul hier de body van de methode in.
+    public static HashSet<Integer> randomnumbergenerator(){
+        Random random = new Random();
+        HashSet<Integer> set = new HashSet<>();
 
-        Stappenplan:
-        - Maak een nieuwe variabele van type Random. (Tip: Zoek op internet hoe je Random kunt gebruiken)
-        - Maak een nieuwe variabele van type HashSet.
-        - Schrijf een while-loop om 4 random nummers aan de hashset toe te voegen
-        - return de hashset
-         */
-    }
+        while (set.size() < 4) {
+            set.add(random.nextInt(10));
+        }
+        return set;
 
-    public static void/*moet dit returntype "void" zijn of wat anders?*/ setToStringConverter(/*Heeft deze methode nog parameter(s) nodig?*/){
+    public static String setToStringConverter(HashSet<Integer>){
+        String string = "";
+        for (int i = 0; i < set.size(); i++) {
+            string.concat(i);
+        }
+        return String;
+
         /*
         Vul hier de body van de methode in.
 
